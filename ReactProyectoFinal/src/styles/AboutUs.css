@@ -1,0 +1,19 @@
+.image{
+    display: flex;
+    justify-content: center;
+}
+.tituloAboutUs{
+    display: flex;
+    justify-content: center;
+}
+.loreAboutUs{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right: 5%;    
+}
+.imageAboutUs{
+
+    width: 35%;
+}

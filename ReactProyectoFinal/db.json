@@ -1,0 +1,59 @@
+{
+  "users": [
+    {
+      "id": "b607",
+      "username": "dariel",
+      "password": "1",
+      "telephone": "2"
+    },
+    {
+      "id": "142c",
+      "username": "dariel",
+      "password": "1",
+      "telephone": "2"
+    },
+    {
+      "id": "9864",
+      "username": "khan",
+      "password": "jhaga",
+      "telephone": "5"
+    },
+    {
+      "id": "b0b6",
+      "username": "electric",
+      "password": "boogaloo",
+      "telephone": "666"
+    },
+    {
+      "id": "a847",
+      "username": "cadia",
+      "password": "resiste",
+      "telephone": "1"
+    },
+    {
+      "id": "f6a3",
+      "username": "bodoque",
+      "password": "31",
+      "telephone": "31"
+    },
+    {
+      "id": "cb55",
+      "username": "jose",
+      "password": "1",
+      "telephone": "2"
+    },
+    {
+      "id": "35c2",
+      "username": "tagalog",
+      "password": "7",
+      "telephone": "3"
+    }
+  ],
+  "products": [
+    {
+      "id": "cfce",
+      "product": "lemann rus",
+      "duration": "04:00"
+    }
+  ]
+}
