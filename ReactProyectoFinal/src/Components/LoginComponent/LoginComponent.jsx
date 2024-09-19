@@ -15,21 +15,19 @@ const LoginComponent = () => {
   const ProceedLogin = async (e) => {
     e.preventDefault();
     
-    
-    // Clear previous messages
+
     setLoginError('');
     setLoginMessage('');
 
     if (validate()) {
       try {
-        // Construct URL with query parameters
-        const url = `http://localhost:3000/users?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
 
-        // Make a GET request with axios
+        const url = `http://localhost:2077/users?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
+
         const response = await axios.get(url);
         const data = response.data;
 
-        // Handle the response
+
         if (Array.isArray(data) && data.length > 0) {
           const user = data[0];
           if (user.password === password) {
@@ -47,7 +45,7 @@ const LoginComponent = () => {
           toast.error('Invalid username');
         }
       } catch (error) {
-        // Handle errors
+
         console.error(error);
         setLoginError('Login failed due to: ' + (error.response?.data?.error || error.message));
         toast.error('Login failed due to: ' + (error.response?.data?.error || error.message));

@@ -37,7 +37,7 @@ const RegisterComponent = () => {
             let allData = { username, password, telephone }
             console.log(allData)
         if (validRegister()) {
-            fetch("http://localhost:3000/users", {
+            fetch("http://localhost:2077/users", {
                 method: "POST",
                 headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(allData)

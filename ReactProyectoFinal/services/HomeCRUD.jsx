@@ -9,12 +9,3 @@ export const fetchproduct = () => {
             throw error;
         });
 };
-
-export const deleteproduct = (id) => {
-    return axios.delete(`http://localhost:2077/product/${id}`)
-        .then(res => res.data)
-        .catch(error => {
-            console.error('Error deleting product:', error);
-            throw error;
-        });
-};

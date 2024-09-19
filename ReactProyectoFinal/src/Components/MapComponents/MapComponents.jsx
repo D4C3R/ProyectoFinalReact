@@ -1,8 +1,8 @@
-// src/MapComponent.js
+
 import React, { useState } from 'react';
 import { GoogleMap, LoadScript, MarkerF } from '@react-google-maps/api';
 
-const API_KEY = ' AIzaSyCPYxyhT8Agz6RymatEz0hRVzx0GAQi6JI';  // Reemplaza con tu clave de API
+const API_KEY = ' AIzaSyCPYxyhT8Agz6RymatEz0hRVzx0GAQi6JI'; 
 
 const containerStyle = {
     width: '100%',
@@ -17,10 +17,9 @@ const center = {
 const MapComponent = () => {
     const [zoomLevel, setZoomLevel] = useState(18);
 
-    // Función para aumentar el nivel de zoom
+
     const increaseZoom = () => setZoomLevel(prevZoom => Math.min(prevZoom + 1, 21));
 
-    // Función para disminuir el nivel de zoom
     const decreaseZoom = () => setZoomLevel(prevZoom => Math.max(prevZoom - 1, 0));
 
     return (

@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-export const createCita = (newData) => {
-    return axios.post('http://localhost:2077/products', newData)
+export const createproduct = (newData) => {
+    return axios.post('http://localhost:2077/product', newData)
         .then(res => res.data)
         .catch(error => {
-            console.error('Error creating cita:', error);
+            console.error('Error creating making product:', error);
             throw error;
         });
 };

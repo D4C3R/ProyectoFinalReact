@@ -1,0 +1,54 @@
+/* Ensure no padding/margin on the body and html */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Style the navbar section to take full width */
+.navbar-section {
+    background-color: blue;
+    padding: 0;
+    margin: 0;
+    width: 100vw; /* Full viewport width */
+    height: 15vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+}
+
+/* Style for the navbar */
+.navbar {
+    width: 100%;
+}
+
+/* Styling for the navbar list */
+.navbar-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between; /* Space between the Home and the rest */
+    width: 100%;
+    align-items: center;
+}
+
+/* Styling for the first navbar item (Home) */
+.navbar-item:first-child {
+    margin-right: auto; /* Push other items to the right */
+    padding-left: 1rem; /* Optional: add some space on the left */
+}
+
+/* Styling individual navbar items */
+.navbar-item {
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Styling for the links */
+.navbar-item a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}

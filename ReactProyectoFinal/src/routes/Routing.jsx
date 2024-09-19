@@ -7,6 +7,7 @@ import Register from '../pages/Register'
 import Login from '../pages/Login'
 import Create from '../pages/Create'
 import Update from '../pages/Update'
+import MakeAppointment from '../pages/MakeAppointment'
 
 const Routing = () =>{
 
@@ -20,6 +21,7 @@ const Routing = () =>{
             <Route path='Login' element={<Login/>}/>
             <Route path='Create' element={<Create/>}/>
             <Route path='Update/:id' element={<Update/>}/>
+            <Route path='MakeAppointment/:id' element={<MakeAppointment/>}/>
         </Routes>
     )
 }

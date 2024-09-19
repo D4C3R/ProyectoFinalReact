@@ -1,4 +1,4 @@
-const apiKey = 'AIzaSyCPYxyhT8Agz6RymatEz0hRVzx0GAQi6JI';  // Reemplaza con tu clave de API
+const apiKey = 'AIzaSyCPYxyhT8Agz6RymatEz0hRVzx0GAQi6JI'; 
 const address = 'X6JV+G3G, Provincia de Puntarenas, El Roble';
 
 fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address)}&key=${apiKey}`)

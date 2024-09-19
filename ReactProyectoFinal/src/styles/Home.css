@@ -1,0 +1,24 @@
+/* Home.css */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.card-item {
+    flex: 1 1 300px; /* Cards take up a minimum of 300px and grow as space allows */
+    max-width: 300px; /* Prevent cards from getting too wide */
+}
+
+.card {
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column; /* Ensure content is properly aligned */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Subtle zoom effect on hover */
+}

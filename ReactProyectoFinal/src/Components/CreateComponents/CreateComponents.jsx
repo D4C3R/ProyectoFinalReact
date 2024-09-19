@@ -1,47 +1,57 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { createCita } from '../../../services/CreateCRUD';
+import { createproduct } from '../../../services/CreateCRUD';
 
 function CreateComponent() {
-    const [inputData, setInputData] = useState({ product: '', price: '', duration: '', image: '' });
+    const [inputData, setInputData] = useState({
+        product: '',
+        price: '',
+        duration: '',
+        image: ''
+    });
+
     const navigate = useNavigate();
+
+
+    const convertToBase64 = (files) => {
+        Array.from(files).forEach(file => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                const base64String = reader.result.split(',')[1];
+                setInputData(prevState => ({
+                    ...prevState,
+                    image: base64String
+                }));
+            };
+        });
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
-        createCita(inputData)
+        createproduct(inputData)
             .then(() => {
-                toast.success("Appointment added");
+                toast.success("product added");
                 navigate('/Administration');
             })
             .catch(error => {
-                toast.error("Error adding appointment");
+                toast.error("Error adding product");
                 console.error(error);
             });
     };
-    const converttoBase64 = (files) => {
-        Array.from(files).forEach(file => {
-            var reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = function () {
-                var arrayAuxiliar = [];
-                var base64 = reader.result;
-                arrayAuxiliar = base64.split(',');
-                console.log(arrayAuxiliar[1]);
-            }
-        })
-    }
+
     return (
         <div>
             <div>
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <label htmlFor="product">Product</label>
+                        <label htmlFor="product">product</label>
                         <input
                             type="text"
                             onChange={e => setInputData({ ...inputData, product: e.target.value })}
                         />
+                    </div>
                     <div>
                         <label htmlFor="price">Price</label>
                         <input
@@ -49,16 +59,20 @@ function CreateComponent() {
                             onChange={e => setInputData({ ...inputData, price: e.target.value })}
                         />
                     </div>
-                    </div>
                     <div>
-                        <label htmlFor="duration">duration</label>
+                        <label htmlFor="duration">Duration</label>
                         <input
-                            type="time"
+                            type="number"
                             onChange={e => setInputData({ ...inputData, duration: e.target.value })}
                         />
                     </div>
                     <div>
-                        <input type="file" multiple onChange={(e)=>converttoBase64(e.target.files)}/>
+                        <label htmlFor="image">Upload Image</label>
+                        <input 
+                            type="file" 
+                            multiple 
+                            onChange={e => convertToBase64(e.target.files)}
+                        />
                     </div>
                     <div>
                         <button type="submit">Add</button>

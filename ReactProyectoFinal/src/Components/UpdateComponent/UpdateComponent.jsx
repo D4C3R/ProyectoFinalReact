@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { fetchCitaById, updateCita } from '../../../services/UpdateCRUD'; // Import the API functions
+import { fetchproductById, updateproduct } from '../../../services/UpdateCRUD';
 import { toast } from 'react-toastify';
 
 function UpdateComponent() {
     const { id } = useParams();
-    const [data, setData] = useState({ id: '', product: '', duration: '' });
+    const [data, setData] = useState({ id: '', price: "", product: '', duration: '', image: "" });
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetchCitaById(id)
+        fetchproductById(id)
             .then(fetchedData => {
                 setData(fetchedData);
             })
@@ -18,12 +18,31 @@ function UpdateComponent() {
             });
     }, [id]);
 
+   
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                const base64String = reader.result.split(',')[1];
+                setData(prevData => ({
+                    ...prevData,
+                    image: base64String
+                }));
+            };
+            reader.onerror = (error) => {
+                toast.error('Error reading file');
+            };
+        }
+    };
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        updateCita(id, data)
+        updateproduct(id, data)
             .then(() => {
                 toast.success('Data updated successfully');
-                navigate('/');
+                navigate('/administration');
             })
             .catch(error => {
                 toast.error('Error updating data');
@@ -39,7 +58,7 @@ function UpdateComponent() {
                         <input type="text" disabled value={data.id} />
                     </div>
                     <div>
-                        <label htmlFor="product">Product</label>
+                        <label htmlFor="product">product</label>
                         <input
                             type="text"
                             value={data.product}
@@ -47,12 +66,35 @@ function UpdateComponent() {
                         />
                     </div>
                     <div>
-                        <label htmlFor="duration">duration</label>
+                        <label htmlFor="price">Price</label>
                         <input
-                            type="time"
+                            type="text"
+                            value={data.price}
+                            onChange={e => setData({ ...data, price: e.target.value })}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="duration">Duration</label>
+                        <input
+                            type="number"
                             value={data.duration}
                             onChange={e => setData({ ...data, duration: e.target.value })}
                         />
+                    </div>
+                    <div>
+                        <label htmlFor="image">Image</label>
+                        {}
+                        <input type="file" accept="image/*" onChange={handleImageChange} />
+                        {}
+                        {data.image && (
+                            <div>
+                                <img 
+                                    src={`data:image/jpeg;base64,${data.image}`} 
+                                    alt="product" 
+                                    style={{ width: '150px', height: '150px', marginTop: '10px' }} 
+                                />
+                            </div>
+                        )}
                     </div>
                     <div>
                         <button type="submit">Update</button>
