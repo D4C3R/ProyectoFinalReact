@@ -10,4 +10,5 @@ function MakeAppointment() {
         </div>
     )
 }
+
 export default MakeAppointment

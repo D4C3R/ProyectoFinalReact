@@ -10,7 +10,6 @@ import Update from '../pages/Update'
 import MakeAppointment from '../pages/MakeAppointment'
 
 const Routing = () =>{
-
     return(
         <Routes>
             <Route path='/' element={<Home/>}/>

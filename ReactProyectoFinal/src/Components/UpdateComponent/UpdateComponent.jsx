@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchproductById, updateproduct } from '../../../services/UpdateCRUD';
 import { toast } from 'react-toastify';
+import "../../styles/Update.css";
 
 function UpdateComponent() {
     const { id } = useParams();
     const [data, setData] = useState({ id: '', price: "", product: '', duration: '', image: "" });
     const navigate = useNavigate();
-
     useEffect(() => {
         fetchproductById(id)
             .then(fetchedData => {
@@ -17,8 +17,6 @@ function UpdateComponent() {
                 toast.error('Error fetching data');
             });
     }, [id]);
-
-   
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -36,7 +34,6 @@ function UpdateComponent() {
             };
         }
     };
-
     const handleSubmit = (event) => {
         event.preventDefault();
         updateproduct(id, data)
@@ -48,7 +45,6 @@ function UpdateComponent() {
                 toast.error('Error updating data');
             });
     };
-
     return (
         <div>
             <div>
@@ -83,15 +79,15 @@ function UpdateComponent() {
                     </div>
                     <div>
                         <label htmlFor="image">Image</label>
-                        {}
+                        { }
                         <input type="file" accept="image/*" onChange={handleImageChange} />
-                        {}
+                        { }
                         {data.image && (
                             <div>
-                                <img 
-                                    src={`data:image/jpeg;base64,${data.image}`} 
-                                    alt="product" 
-                                    style={{ width: '150px', height: '150px', marginTop: '10px' }} 
+                                <img
+                                    src={`data:image/jpeg;base64,${data.image}`}
+                                    alt="product"
+                                    style={{ width: '150px', height: '150px', marginTop: '10px' }}
                                 />
                             </div>
                         )}
@@ -101,7 +97,9 @@ function UpdateComponent() {
                     </div>
                 </form>
             </div>
+            <br />
         </div>
+
     );
 }
 

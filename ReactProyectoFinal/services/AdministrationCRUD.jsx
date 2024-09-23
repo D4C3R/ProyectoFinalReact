@@ -1,6 +1,4 @@
 import axios from 'axios'; 
-
-
 export const fetchproduct = () => {
     return axios.get('http://localhost:2077/product')
         .then(res => res.data)
@@ -9,7 +7,6 @@ export const fetchproduct = () => {
             throw error;
         });
 };
-
 export const deleteproduct = (id) => {
     return axios.delete(`http://localhost:2077/product/${id}`)
         .then(res => res.data)

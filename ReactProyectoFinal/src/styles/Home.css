@@ -1,24 +1,111 @@
-/* Home.css */
-
 .card-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: space-around;
+    justify-content: center;
     padding: 20px;
+    color: gold;
 }
 
 .card-item {
-    flex: 1 1 300px; /* Cards take up a minimum of 300px and grow as space allows */
-    max-width: 300px; /* Prevent cards from getting too wide */
+    flex: 1 1 300px;
+    max-width: 300px;
+    background-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-color: gold;
+    transition: transform 0.2s;
+    box-shadow: 0 0 10px gold;
 }
 
 .card {
-    transition: transform 0.2s;
     display: flex;
-    flex-direction: column; /* Ensure content is properly aligned */
+    flex-direction: column;
+    border-style: solid;
+    padding: 20px;
+    transition: transform 0.2s;
+        color: gold;
 }
 
 .card:hover {
-    transform: scale(1.05); /* Subtle zoom effect on hover */
+    transform: scale(1.01);
+}
+
+.cardtext {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.cardimage {
+    border: 3px solid #000000;
+}
+
+.random-product-section {
+    text-align: center;
+    margin-bottom: 40px;
+    color: gold;
+
+}
+
+.random-product-card {
+    background-color: rgb(255, 255, 255);
+    margin: 0 auto;
+    max-width: 400px;
+    border: 2px solid gold;
+    box-shadow: 0 0 10px gold;
+}
+
+.random-product-image {
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-image {
+    height: 200px;
+    object-fit: cover;
+}
+
+h2 {
+    text-align: center;
+    color: #000000;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    .random-product-card {
+        max-width: 100%;
+    }
+    .random-product-image,
+    .product-image {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+        margin: 10px;
+    }
+    .card {
+        padding: 10px;
+    }
+    .random-product-image,
+    .product-image {
+        height: 150px;
+    }
+}
+.texto{
+    color: gold;
 }

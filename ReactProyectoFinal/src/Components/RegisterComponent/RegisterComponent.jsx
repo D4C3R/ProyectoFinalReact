@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../../styles/Register.css"
-import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const RegisterComponent = () => {
-
     const [username, usernamechange] = useState("")
     const [password, passwordchange] = useState("")
     const [telephone, telephonechange] = useState("")
@@ -30,12 +28,10 @@ const RegisterComponent = () => {
         }
         return correctform;
     }
-
     const handleSubmit = (e) => {
-
-            e.preventDefault();
-            let allData = { username, password, telephone }
-            console.log(allData)
+        e.preventDefault();
+        let allData = { username, password, telephone }
+        console.log(allData)
         if (validRegister()) {
             fetch("http://localhost:2077/users", {
                 method: "POST",
@@ -45,7 +41,7 @@ const RegisterComponent = () => {
                 toast.success('Register complete')
                 setTimeout(() => {
                     navigate('/Login');
-                  }, 5000);
+                }, 5000);
             }).catch((err) => {
                 toast.error('Register failed due to' + err.message)
             })
@@ -59,17 +55,17 @@ const RegisterComponent = () => {
                         <h1>Register</h1>
                     </div>
                     <div>
-                        <label>Username <span className='errmsg'>*</span></label>
+                        <label className='tituloregister'>Username <span className='errmsg'>*</span></label>
                         <br />
                         <input type="text" value={username} onChange={e => usernamechange(e.target.value)} />
                     </div>
                     <div>
-                        <label>Password <span className='errmsg'>*</span></label>
+                        <label className='tituloregister'>Password <span className='errmsg'>*</span></label>
                         <br />
                         <input type="password" value={password} onChange={e => passwordchange(e.target.value)} />
                     </div>
                     <div>
-                        <label>Telephone <span className='errmsg'>*</span></label>
+                        <label className='tituloregister'>Telephone <span className='errmsg'>*</span></label>
                         <br />
                         <input type="tel" value={telephone} onChange={e => telephonechange(e.target.value)} />
                     </div>
@@ -78,10 +74,11 @@ const RegisterComponent = () => {
                     </div>
                 </form>
                 <div>
-
                 </div>
             </div>
+            <br />
         </div>
     )
 }
+
 export default RegisterComponent

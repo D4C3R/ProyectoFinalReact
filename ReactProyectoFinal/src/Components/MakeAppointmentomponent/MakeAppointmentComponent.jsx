@@ -8,8 +8,6 @@ function MakeAppointmentComponent() {
     const [productData, setProductData] = useState({ id: '', product: '', price: '', duration: '', image: '' });
     const [appointmentData, setAppointmentData] = useState({ day: '', hour: '' });
     const navigate = useNavigate();
-
- 
     useEffect(() => {
         fetchproductById(id)
             .then(fetchedData => {
@@ -19,7 +17,6 @@ function MakeAppointmentComponent() {
                 toast.error('Error fetching product data');
             });
     }, [id]);
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const appointment = {
@@ -27,7 +24,6 @@ function MakeAppointmentComponent() {
             day: appointmentData.day,
             hour: appointmentData.hour
         };
-
         createAppointment(appointment)
             .then(() => {
                 toast.success('Appointment created successfully');
@@ -37,12 +33,10 @@ function MakeAppointmentComponent() {
                 toast.error('Error creating appointment');
             });
     };
-
     return (
         <div>
             <h2>Make Appointment for {productData.product}</h2>
             <div>
-                {/* Display the product details */}
                 {productData.image && (
                     <img
                         src={`data:image/jpeg;base64,${productData.image}`}
@@ -53,7 +47,6 @@ function MakeAppointmentComponent() {
                 <p><strong>Price:</strong> {productData.price}</p>
                 <p><strong>Duration:</strong> {productData.duration} hours</p>
             </div>
-
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="day">Select Day</label>

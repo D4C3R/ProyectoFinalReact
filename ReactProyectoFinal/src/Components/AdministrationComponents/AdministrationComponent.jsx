@@ -3,16 +3,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import { fetchproduct, deleteproduct } from '../../../services/AdministrationCRUD'; 
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
+import '../../styles/Administration.css';
 
 function AdministrationComponent() {
     const [columns, setColumns] = useState([]);
     const [records, setRecords] = useState([]);
     const navigate = useNavigate();
-
     useEffect(() => {
         fetchproduct()
             .then(data => {
-
                 if (data.length > 0 && data[0].image) {
                     setColumns([...Object.keys(data[0]), 'image']);
                 } else {
@@ -55,9 +54,8 @@ function AdministrationComponent() {
             }
         });
     };
-
     return (
-        <div>
+        <div className='productList'>
             <div><Link to="/Create">Add +</Link></div>
             <table>
                 <thead>
@@ -65,7 +63,6 @@ function AdministrationComponent() {
                         {columns.map((c, i) => (
                             <th key={i}>{c}</th>
                         ))}
-                        <th>Actions</th> {/* Extra column for update/delete buttons */}
                     </tr>
                 </thead>
                 <tbody>
@@ -89,7 +86,7 @@ function AdministrationComponent() {
                                     )}
                                 </td>
                                 <td>
-                                    <Link to={`/Update/${d.id}`}>Update</Link>
+                                    <Link to={`/Update/${d.id}` }className=''>Update</Link>
                                     <button onClick={() => handleDelete(d.id)}>Delete</button>   
                                 </td>                       
                             </tr>

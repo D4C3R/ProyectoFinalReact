@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { createproduct } from '../../../services/CreateCRUD';
+import '../../styles/create.css';
 
 function CreateComponent() {
     const [inputData, setInputData] = useState({
@@ -10,10 +11,7 @@ function CreateComponent() {
         duration: '',
         image: ''
     });
-
     const navigate = useNavigate();
-
-
     const convertToBase64 = (files) => {
         Array.from(files).forEach(file => {
             const reader = new FileReader();
@@ -27,7 +25,6 @@ function CreateComponent() {
             };
         });
     };
-
     const handleSubmit = (event) => {
         event.preventDefault();
         createproduct(inputData)
@@ -40,34 +37,33 @@ function CreateComponent() {
                 console.error(error);
             });
     };
-
     return (
         <div>
             <div>
                 <form onSubmit={handleSubmit}>
                     <div>
-                        <label htmlFor="product">product</label>
+                        <label htmlFor="product" className='titulocreate'>product</label>
                         <input
                             type="text"
                             onChange={e => setInputData({ ...inputData, product: e.target.value })}
                         />
                     </div>
                     <div>
-                        <label htmlFor="price">Price</label>
+                        <label htmlFor="price" className='titulocreate'>Price</label>
                         <input
                             type="number"
                             onChange={e => setInputData({ ...inputData, price: e.target.value })}
                         />
                     </div>
                     <div>
-                        <label htmlFor="duration">Duration</label>
+                        <label htmlFor="duration"  className='titulocreate'>Duration</label>
                         <input
                             type="number"
                             onChange={e => setInputData({ ...inputData, duration: e.target.value })}
                         />
                     </div>
                     <div>
-                        <label htmlFor="image">Upload Image</label>
+                        <label htmlFor="image" className='titulocreate'>Upload Image</label>
                         <input 
                             type="file" 
                             multiple 
@@ -75,10 +71,11 @@ function CreateComponent() {
                         />
                     </div>
                     <div>
-                        <button type="submit">Add</button>
+                        <button type="submit" >Add</button>
                     </div>
                 </form>
             </div>
+            <br />
         </div>
     );
 }

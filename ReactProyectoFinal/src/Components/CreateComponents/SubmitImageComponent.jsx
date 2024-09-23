@@ -20,5 +20,5 @@ axios.post('http://localhost:2077/product',formData)
         </div>
     )
 }
-  
+
 export default SubmitImage

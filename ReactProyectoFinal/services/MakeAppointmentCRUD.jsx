@@ -1,6 +1,4 @@
 import axios from 'axios';
-
-
 export const fetchproductById = (id) => {
     return axios.get(`http://localhost:2077/product/${id}`)
         .then(res => res.data)
@@ -9,8 +7,6 @@ export const fetchproductById = (id) => {
             throw error;
         });
 };
-
-
 export const createAppointment = (appointmentData) => {
     return axios.post('http://localhost:2077/appointments', appointmentData)
         .then(res => res.data)

@@ -1,6 +1,4 @@
 import axios from 'axios';
-
-
 export const fetchproductById = (id) => {
     return axios.get(`http://localhost:2077/product/${id}`)
         .then(res => res.data)
@@ -9,8 +7,6 @@ export const fetchproductById = (id) => {
             throw error;
         });
 };
-
-
 export const updateproduct = (id, updatedData) => {
     return axios.put(`http://localhost:2077/product/${id}`, updatedData)
         .then(res => res.data)

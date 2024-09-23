@@ -11,23 +11,15 @@ const LoginComponent = () => {
   const [loginError, setLoginError] = useState('');
   const [loginMessage, setLoginMessage] = useState('');
   const navigate = useNavigate();
-
   const ProceedLogin = async (e) => {
     e.preventDefault();
-    
-
     setLoginError('');
     setLoginMessage('');
-
     if (validate()) {
       try {
-
         const url = `http://localhost:2077/users?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
-
         const response = await axios.get(url);
         const data = response.data;
-
-
         if (Array.isArray(data) && data.length > 0) {
           const user = data[0];
           if (user.password === password) {
@@ -45,14 +37,12 @@ const LoginComponent = () => {
           toast.error('Invalid username');
         }
       } catch (error) {
-
         console.error(error);
         setLoginError('Login failed due to: ' + (error.response?.data?.error || error.message));
         toast.error('Login failed due to: ' + (error.response?.data?.error || error.message));
       }
     }
   };
-
   const validate = () => {
     let result = true;
     if (username.trim() === '') {
@@ -67,7 +57,6 @@ const LoginComponent = () => {
     }
     return result;
   };
-
   return (
     <div>
       <form onSubmit={ProceedLogin}>
@@ -75,7 +64,7 @@ const LoginComponent = () => {
           <h1>Login</h1>
         </div>
         <div>
-          <label>Username <span className='errmsg'>*</span></label>
+          <label className='titulologin'>Username <span className='errmsg'>*</span></label>
           <br />
           <input 
             type="text" 
@@ -84,7 +73,7 @@ const LoginComponent = () => {
           />
         </div>
         <div>
-          <label>Password <span className='errmsg'>*</span></label>
+          <label className='titulologin'>Password <span className='errmsg'>*</span></label>
           <br />
           <input 
             type="password" 

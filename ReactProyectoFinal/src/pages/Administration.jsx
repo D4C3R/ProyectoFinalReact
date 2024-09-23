@@ -10,4 +10,5 @@ function Administration() {
         </div>
     )
 }
+
 export default Administration
