@@ -37,7 +37,7 @@ function AboutUsComponent() {
                     As we grow, we hope to expand our impact, continuing to innovate while staying true to our core belief: 
                     that beauty should be accessible, inclusive, and empowering.
                     <br />
-                    <strong className='tituloAboutUs'>Values:</strong>
+                    <strong className='tituloAboutUs'><strong>Values:</strong></strong>
                     <br />
                     <strong className='tituloAboutUs'>Affordability</strong> 
                     <br />

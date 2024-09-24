@@ -50,6 +50,18 @@ html, body {
     text-decoration: none;
 }
 
+.maf{
+    color: gold;
+}
+
+.datetoappoint{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center
+}
+
 @media (max-width: 768px) {
     .navbar-list {
         flex-direction: column; 

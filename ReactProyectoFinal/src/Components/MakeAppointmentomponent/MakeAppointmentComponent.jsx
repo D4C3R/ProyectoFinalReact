@@ -35,8 +35,8 @@ function MakeAppointmentComponent() {
     };
     return (
         <div>
-            <h2>Make Appointment for {productData.product}</h2>
-            <div>
+            <h2 className='maf'>Make Appointment for {productData.product}</h2>
+            <div className='datetoappoint'>
                 {productData.image && (
                     <img
                         src={`data:image/jpeg;base64,${productData.image}`}
@@ -49,7 +49,7 @@ function MakeAppointmentComponent() {
             </div>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="day">Select Day</label>
+                    <label htmlFor="day" className='maf'>Select Day</label>
                     <input
                         type="date"
                         id="day"
@@ -59,7 +59,7 @@ function MakeAppointmentComponent() {
                     />
                 </div>
                 <div>
-                    <label htmlFor="hour">Select Hour</label>
+                    <label htmlFor="hour" className='maf'>Select Hour</label>
                     <input
                         type="time"
                         id="hour"
@@ -70,6 +70,7 @@ function MakeAppointmentComponent() {
                 </div>
                 <button type="submit">Make Appointment</button>
             </form>
+            <br/>
         </div>
     );
 }

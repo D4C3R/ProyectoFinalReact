@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchproduct } from '../../../services/AdministrationCRUD';
+import { fetchproduct } from '../../../services/HomeCRUD';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import RandomProductComponent from '../RandomProductomponent/RandomProductComponent';
@@ -9,7 +9,6 @@ function HomeComponent() {
     const [records, setRecords] = useState([]);
     const [filteredRecords, setFilteredRecords] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
-    const [sortOrder, setSortOrder] = useState("");
     
     useEffect(() => {
         fetchproduct()
@@ -29,15 +28,7 @@ function HomeComponent() {
         );
         setFilteredRecords(filtered);
     };
-    const handleSort = (order) => {
-        setSortOrder(order);
-        const sorted = [...filteredRecords].sort((a, b) => {
-            if (order === "asc") return a.price - b.price;
-            if (order === "desc") return b.price - a.price;
-            return 0;
-        });
-        setFilteredRecords(sorted);
-    };
+
     return (
         <section>
             <RandomProductComponent />
@@ -49,10 +40,6 @@ function HomeComponent() {
                     onChange={handleSearch}
                     className="search-bar"
                 />
-                <div className="sort-buttons">
-                    <button onClick={() => handleSort("asc")}>Sort by Price: Low to High</button>
-                    <button onClick={() => handleSort("desc")}>Sort by Price: High to Low</button>
-                </div>
             </div>
             <h2 className="random-product-section">Available Products</h2>
             <section className="card-container">
