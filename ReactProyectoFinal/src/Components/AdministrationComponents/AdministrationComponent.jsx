@@ -74,7 +74,7 @@ function AdministrationComponent() {
                                 <td>{d.price}</td>
                                 <td>{d.duration}</td>
                                 <td>
-                                    {/* Check if the image field exists */}
+                                    {}
                                     {d.image ? (
                                         <img 
                                             src={`data:image/jpeg;base64,${d.image}`} 
