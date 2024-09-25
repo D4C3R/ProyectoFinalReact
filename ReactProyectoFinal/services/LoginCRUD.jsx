@@ -12,6 +12,7 @@ const LoginCRUD = async (username, password, navigate, setLoginError, setLoginMe
             if (user.password === password) {
                 setLoginMessage('Login successful');
                 toast.success('Login successful');
+                localStorage.setItem('Identified','True')
                 setTimeout(() => {
                     navigate('/Home');
                 }, 1000);

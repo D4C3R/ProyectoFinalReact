@@ -57,7 +57,7 @@ const RegisterComponent = () => {
                         <input type="password" value={password} onChange={e => passwordchange(e.target.value)} />
                     </div>
                     <div>
-                        <label>Telephone <span className='errmsg'>*</span></label>
+                        <label className='tituloregister'>Telephone <span className='errmsg'>*</span></label>
                         <br />
                         <input type="tel" value={telephone} onChange={e => telephonechange(e.target.value)} />
                     </div>

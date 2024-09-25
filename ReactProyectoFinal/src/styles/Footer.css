@@ -1,0 +1,22 @@
+.footer-container {
+    background-color: white;                     
+    text-align: center;          
+    width: 100%;                
+    padding: 20px 0;              
+    bottom: 0;                   
+    left: 0;                      
+    font-size: 1.2rem;          
+}
+
+.footer-text {
+    margin: 0;
+    padding: 0;
+    color: gold; 
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        font-size: 1rem;          
+        padding: 15px 0;        
+    }
+}
