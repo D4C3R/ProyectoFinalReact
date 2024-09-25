@@ -48,10 +48,10 @@ function ContactComponent() {
       <div className='about2 social-links'>
         <h2 className='tituloemail'>Contact us!</h2>
         <div>
-          <Link to={facebookurl}>saylunails</Link>
+          <Link target={'_blank'} to={facebookurl}>saylunails</Link>
         </div>
         <div>
-          <Link to={instagramurl}className='social-links'>saylunails_</Link>
+          <Link target={'_blank'} to={instagramurl}className='social-links'>saylunails_</Link>
         </div>
         <div>
           <Link target={'_blank'} to={whatsappurl}className='social-links'>8491 0984</Link>
