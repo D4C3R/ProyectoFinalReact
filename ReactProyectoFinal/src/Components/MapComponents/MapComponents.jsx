@@ -9,7 +9,7 @@ const center = {
 };
 
 const MapComponent = () => {
-  const [zoomLevel, setZoomLevel] = useState(18);
+  const [zoomLevel] = useState(18);
   return (
     <section className="map-section">
       <br /><br />
