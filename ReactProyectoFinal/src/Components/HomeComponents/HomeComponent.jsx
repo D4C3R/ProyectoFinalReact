@@ -54,11 +54,7 @@ function HomeComponent() {
                                     className="product-image"
                                 />
                             ) : (
-                                <Card.Img
-                                    variant="top"
-                                    alt="No Image"
-                                    className="product-image"
-                                />
+                                <Card.Img/>
                             )}
                             <Card.Body>
                                 <Card.Title><strong>{d.product}</strong></Card.Title>
