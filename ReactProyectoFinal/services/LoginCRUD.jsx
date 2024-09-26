@@ -22,7 +22,7 @@ const LoginCRUD = async (username, password, navigate, setLoginError, setLoginMe
             }
         } else {
             setLoginError('Invalid username');
-            toast.error('Invalid username');
+            toast.error('Invalid credentials');
         }
     } catch (error) {
         console.error(error);
