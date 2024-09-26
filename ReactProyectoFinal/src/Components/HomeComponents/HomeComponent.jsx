@@ -56,7 +56,6 @@ function HomeComponent() {
                             ) : (
                                 <Card.Img
                                     variant="top"
-                                    src="https://via.placeholder.com/200"
                                     alt="No Image"
                                     className="product-image"
                                 />
